@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# TypeScript compiled output (Vite compiles in memory, don't commit tsc artifacts)
+src/**/*.js
+src/**/*.d.ts
+src/**/*.js.map
+src/**/*.d.ts.map
+vite.config.js
+vite.config.d.ts
+vite.config.js.map
+vite.config.d.ts.map
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

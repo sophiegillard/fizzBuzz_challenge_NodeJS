@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     if (limitParam !== undefined) {
         const limitNumber = parseInt(limitParam, 10);
         if (isNaN(limitNumber) || limitNumber < 1) {
-            return res.status(400).json({ error: "Invalid limit" });
+            return res.status(400).json({ error: "La limite est invalide" });
         }
         return res.json(generateFizzBuzz(limitNumber));
     }
