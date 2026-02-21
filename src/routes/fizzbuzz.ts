@@ -12,7 +12,9 @@ router.get("/", (req, res) => {
         }
         return res.json(generateFizzBuzz(limitNumber));
     }
-    res.json({ message: "Hello, World!" });
+    res.json({
+        message: "Veuillez spécifier une limite pour activer FizzBuzz",
+    });
 });
 
 export default router;

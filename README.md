@@ -37,6 +37,7 @@ Interface sur **http://localhost:5173**, API sur **http://localhost:3001**.
 ## Description
 
 Cette API implémente le célèbre problème FizzBuzz : pour chaque nombre de 1 à N :
+
 - Les multiples de 3 sont remplacés par « Fizz »
 - Les multiples de 5 sont remplacés par « Buzz »
 - Les multiples de 3 et 5 sont remplacés par « FizzBuzz »
@@ -61,10 +62,10 @@ PORT=3001
 API_KEY=votre-clé-api-secrète
 ```
 
-| Variable | Description | Obligatoire |
-|----------|-------------|-------------|
-| `PORT` | Port du serveur (défaut : 3001) | Non |
-| `API_KEY` | Clé d'authentification pour l'API | Oui |
+| Variable  | Description                       | Obligatoire |
+| --------- | --------------------------------- | ----------- |
+| `PORT`    | Port du serveur (défaut : 3001)   | Non         |
+| `API_KEY` | Clé d'authentification pour l'API | Oui         |
 
 ## Lancement
 
@@ -118,9 +119,9 @@ Génère une séquence FizzBuzz.
 
 **Paramètres de requête :**
 
-| Paramètre | Type | Obligatoire | Description |
-|-----------|------|-------------|-------------|
-| `limit` | nombre | Non | Nombre d'éléments à générer (1 à N). Si absent, retourne un message d'accueil. |
+| Paramètre | Type   | Obligatoire | Description                                                                    |
+| --------- | ------ | ----------- | ------------------------------------------------------------------------------ |
+| `limit`   | nombre | Non         | Nombre d'éléments à générer (1 à N). Si absent, retourne un message d'accueil. |
 
 **Exemples de requêtes :**
 
@@ -135,7 +136,23 @@ curl -H "api_key: votre-clé-api-secrète" "http://localhost:3001/api/fizzbuzz?l
 **Exemple de réponse (limit=15) :**
 
 ```json
-[1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]
+[
+    1,
+    2,
+    "Fizz",
+    4,
+    "Buzz",
+    "Fizz",
+    7,
+    8,
+    "Fizz",
+    "Buzz",
+    11,
+    "Fizz",
+    13,
+    14,
+    "FizzBuzz"
+]
 ```
 
 **Codes de réponse :**
@@ -146,16 +163,16 @@ curl -H "api_key: votre-clé-api-secrète" "http://localhost:3001/api/fizzbuzz?l
 
 ## Scripts disponibles
 
-| Commande | Description |
-|----------|-------------|
-| `npm run setup` | Crée `.env` à partir de `.env.example` si absent |
-| `npm start` | Compile le projet et lance le serveur API (port 3001) |
-| `npm run build` | Compile le TypeScript en JavaScript |
-| `npm run start:prod` | Lance le serveur (nécessite une compilation préalable) |
-| `npm run frontend` | Lance l'interface React (port 5173) |
-| `npm run frontend:build` | Compile l'interface pour la production |
-| `npm test` | Exécute les tests (Jest + supertest) |
-| `npm run test:watch` | Exécute les tests en mode watch |
+| Commande                 | Description                                            |
+| ------------------------ | ------------------------------------------------------ |
+| `npm run setup`          | Crée `.env` à partir de `.env.example` si absent       |
+| `npm start`              | Compile le projet et lance le serveur API (port 3001)  |
+| `npm run build`          | Compile le TypeScript en JavaScript                    |
+| `npm run start:prod`     | Lance le serveur (nécessite une compilation préalable) |
+| `npm run frontend`       | Lance l'interface React (port 5173)                    |
+| `npm run frontend:build` | Compile l'interface pour la production                 |
+| `npm test`               | Exécute les tests (Jest + supertest)                   |
+| `npm run test:watch`     | Exécute les tests en mode watch                        |
 
 ## Tests
 
@@ -166,6 +183,7 @@ npm test
 ```
 
 Ils couvrent :
+
 - Le service FizzBuzz (tests unitaires)
 - Le middleware d'authentification (tests unitaires)
 - L'endpoint `/api/fizzbuzz` (tests d'intégration)
