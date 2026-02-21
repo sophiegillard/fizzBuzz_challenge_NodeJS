@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "npm run build && node dist/index.js",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "start:prod": "node dist/index.js",
     "frontend": "cd frontend && npm run dev",
     "frontend:build": "cd frontend && npm run build"
@@ -23,6 +23,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jest": "^29.5.0",
     "@types/node": "^25.3.0",

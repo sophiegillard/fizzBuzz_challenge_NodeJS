@@ -8,7 +8,7 @@ export function apiKeyAuth(
     const apiKey = req.get("api_key")?.trim();
     const expectedKey = process.env.API_KEY?.trim();
     if (!apiKey || !expectedKey || apiKey !== expectedKey) {
-        res.status(401).json({ error: "Invalid or missing API key lol" });
+        res.status(401).json({ error: "Invalid or missing API key" });
         return;
     }
     next();

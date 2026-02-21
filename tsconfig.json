@@ -1,5 +1,5 @@
 {
-    "exclude": ["**/*.test.ts", "**/*.spec.ts"],
+    "exclude": ["**/*.test.ts", "**/*.spec.ts", "dist", "node_modules"],
     "compilerOptions": {
         // File Layout
         "rootDir": "./src",
