@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+*.js.map
+*.d.ts.map
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+.idea/
+.cursor/
+.cursorrules
+.cursorignore
+
+# macOS
+.DS_Store
+
+# Temp files for branch setup
+package.api-only.json
+README.api-only.md
+README.fullstack.md
