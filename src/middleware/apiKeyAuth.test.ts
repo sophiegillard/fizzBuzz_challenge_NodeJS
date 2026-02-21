@@ -6,6 +6,21 @@ describe("apiKeyAuth", () => {
         process.env.API_KEY = "secret-key";
     });
 
+    it("appelle next() si la requête vient du frontend (Origin trusted)", () => {
+        const req = { get: (h: string) => (h === "origin" ? "http://localhost:5173" : undefined) } as any;
+        let nextCalled = false;
+        const mockNext = () => {
+            nextCalled = true;
+        };
+        const res = {
+            status: () => res,
+            json: () => {},
+        } as any;
+
+        apiKeyAuth(req, res, mockNext);
+        expect(nextCalled).toBe(true);
+    });
+
     it("appelle next() si la clé est valide", () => {
         const req = { get: () => "secret-key" } as any;
         let nextCalled = false;

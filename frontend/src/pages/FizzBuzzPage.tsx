@@ -3,16 +3,13 @@ import { Button, Input, Card, Alert, FizzBuzzList } from "../components";
 import { useFizzBuzz } from "../hooks/useFizzBuzz";
 
 export function FizzBuzzPage() {
-    const [apiKey, setApiKey] = useState("");
     const [limit, setLimit] = useState("15");
     const { data, loading, error, fetch, reset } = useFizzBuzz();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const num = limit ? parseInt(limit, 10) : undefined;
-        if (apiKey.trim()) {
-            fetch(apiKey.trim(), num && num > 0 ? num : undefined);
-        }
+        fetch(num && num > 0 ? num : undefined);
     };
 
     return (
@@ -34,21 +31,12 @@ export function FizzBuzzPage() {
                             style={{ marginBottom: "1rem" }}
                         >
                             <Input
-                                label="Clé API"
-                                type="password"
-                                placeholder="Votre clé API"
-                                value={apiKey}
-                                onChange={(e) => setApiKey(e.target.value)}
-                                hint="Header api_key requis par l'API"
-                            />
-                            <Input
                                 label="Limite"
                                 type="number"
                                 min={1}
                                 placeholder="15"
                                 value={limit}
                                 onChange={(e) => setLimit(e.target.value)}
-                                hint="Nombre d'éléments (1-N)"
                             />
                         </div>
                         <div
@@ -61,7 +49,7 @@ export function FizzBuzzPage() {
                             <Button
                                 type="submit"
                                 loading={loading}
-                                disabled={!apiKey.trim()}
+                                disabled={!limit.trim()}
                             >
                                 Générer
                             </Button>

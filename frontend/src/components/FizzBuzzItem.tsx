@@ -14,5 +14,17 @@ interface FizzBuzzItemProps {
 }
 
 export function FizzBuzzItem({ item }: FizzBuzzItemProps) {
-    return <span className={getItemClass(item)}>{item}</span>;
+    return (
+        <span className={getItemClass(item)}>
+            {item === "FizzBuzz" ? (
+                <>
+                    Fizz
+                    <br />
+                    Buzz
+                </>
+            ) : (
+                item
+            )}
+        </span>
+    );
 }

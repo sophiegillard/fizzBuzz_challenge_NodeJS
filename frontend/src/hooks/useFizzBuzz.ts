@@ -14,10 +14,10 @@ export function useFizzBuzz() {
         error: null,
     });
 
-    const fetch = useCallback(async (apiKey: string, limit?: number) => {
+    const fetch = useCallback(async (limit?: number) => {
         setState({ data: null, loading: true, error: null });
         try {
-            const data = await fetchFizzBuzz({ apiKey, limit });
+            const data = await fetchFizzBuzz(limit);
             setState({ data, loading: false, error: null });
         } catch (err) {
             setState({

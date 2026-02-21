@@ -3,11 +3,6 @@ import { getApiUrl } from "./config";
 export type FizzBuzzItem = number | "Fizz" | "Buzz" | "FizzBuzz";
 export type FizzBuzzResponse = FizzBuzzItem[] | { message: string };
 
-export interface FetchFizzBuzzParams {
-    apiKey: string;
-    limit?: number;
-}
-
 export interface ApiError {
     status: number;
     message: string;
@@ -26,10 +21,7 @@ async function handleResponse<T>(res: Response): Promise<T> {
     return data as T;
 }
 
-export async function fetchFizzBuzz({
-    apiKey,
-    limit,
-}: FetchFizzBuzzParams): Promise<FizzBuzzResponse> {
+export async function fetchFizzBuzz(limit?: number): Promise<FizzBuzzResponse> {
     const urlPath = getApiUrl("/api/fizzbuzz");
     const url = urlPath.startsWith("http")
         ? new URL(urlPath)
@@ -40,9 +32,7 @@ export async function fetchFizzBuzz({
 
     const res = await fetch(url.toString(), {
         method: "GET",
-        headers: {
-            api_key: apiKey,
-        },
+        headers: {},
     });
     return handleResponse<FizzBuzzResponse>(res);
 }
