@@ -1,9 +1,9 @@
 {
-    "include": ["src/**/*"],
+    "include": ["backend/**/*"],
     "exclude": ["**/*.test.ts", "**/*.spec.ts", "dist", "node_modules", "frontend"],
     "compilerOptions": {
         // File Layout
-        "rootDir": "./src",
+        "rootDir": "./backend",
         "outDir": "./dist",
 
         // Environment Settings
